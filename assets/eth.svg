@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1100" preserveAspectRatio="xMinYMin meet">
+  <g>
+    <g fill="#000">
+      <path d="M 549.95 411.6 L 223.85 559.9 L 549.95 752.5 L 875.85 559.9 L 549.95 411.6 Z" fill-opacity="0.6" />
+      <path d="M 223.85 559.9 L 549.95 752.5 L 549.95 18.9 L 223.85 559.9 Z" fill-opacity="0.45" />
+      <path d="M 549.95 18.9 L 549.95 752.6 L 875.85 559.9 L 549.95 18.9 Z" fill-opacity="0.8" />
+      <path d="M 223.85 621.7 L 549.95 1081.1 L 549.95 814.4 L 223.85 621.7 Z" fill-opacity="0.45" />
+      <path d="M 549.95 814.4 L 549.95 1081.1 L 876.15 621.7 L 549.95 814.4 Z" fill-opacity="0.8" />
+    </g>
+    <text
+      style="font-family: 'Helvetica'; font-size: 10em; stroke: #6a6a6a50; stroke-width: 0.06em; word-spacing: .1em;"
+      fill="#000"
+      x="50%"
+      y="70%"
+      dominant-baseline="middle"
+      text-anchor="middle"
+    >
+      30 JUL 15
+    </text>
+  </g>
+  <defs>
+    <linearGradient id="gradient" gradientUnits="userSpaceOnUse">
+      <stop offset="5%" stopColor="#44bcf0" />
+      <stop offset="60%" stopColor="#7298f8" />
+      <stop offset="150%" stopColor="#a099ff" />
+    </linearGradient>
+  </defs>
+</svg>
