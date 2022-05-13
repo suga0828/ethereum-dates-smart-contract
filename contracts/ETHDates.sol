@@ -3,11 +3,12 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
 
 import { Base64 } from "./libraries/Base64.sol";
 
-contract ETHDates is ERC721URIStorage {
+contract ETHDates is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
@@ -98,6 +99,8 @@ contract ETHDates is ERC721URIStorage {
     }
 
     function makeAnEpicNFT(string memory _day, string memory _month, string memory _year) public {
+        require(true, "ERC721URIStorage: URI query for nonexistent token");
+
         uint256 newItemId = _tokenIds.current();
 
         string memory date = string(abi.encodePacked(_day, " ", _month, " ", _year));
@@ -113,13 +116,15 @@ contract ETHDates is ERC721URIStorage {
                         date,
                         '", "description": "An Ethereum logo to remember those important dates forever.", "image": "data:image/svg+xml;base64,',
                         Base64.encode(bytes(finalSvg)),
-                        '"}'
+                        '", "attributes": [{"trait_type": "Background", "value": "',
+                        backgroundColor,
+                        '"}]}'
                     )
                 )
             )
         );
 
-        string memory finalTokenUri = string(abi.encodePacked("data:application/json:base64,", json));
+        string memory finalTokenUri = string(abi.encodePacked("data:application/json;base64,", json));
 
         _safeMint(msg.sender, newItemId);
 
@@ -130,4 +135,8 @@ contract ETHDates is ERC721URIStorage {
         _tokenIds.increment();
         console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
     }
+
+    function totalSupply() public view virtual returns (uint256) {
+      return _tokenIds.current();
+  }
 }

@@ -1,0 +1,7 @@
+0x53835186e438148A66876002191199c4678537E3
+
+const ETHDatesFactory = await ethers.getContractFactory("ETHDates");
+const ethDates = await ETHDatesFactory.attach('0x53835186e438148A66876002191199c4678537E3');
+
+const tx = await ethDates.makeAnEpicNFT('30', 'JUL' , '15');
+await tx.wait();
